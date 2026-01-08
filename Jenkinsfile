@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Building branch: ${env.BRANCH_NAME}"
+                echo "Building the application..."
                 // Add your build commands here
             }
         }
         
         stage('Test') {
             steps {
-                echo "Testing branch: ${env.BRANCH_NAME}"
+                echo "Testing the application..."
                 // Add your test commands here
             }
         }
@@ -21,7 +21,7 @@ pipeline {
                 branch 'main'  // Only deploy from main branch
             }
             steps {
-                echo "Deploying from main branch"
+                echo "Deploying the application..."
                 // Add your deployment commands here
             }
         }
