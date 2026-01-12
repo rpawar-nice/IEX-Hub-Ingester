@@ -26,6 +26,8 @@ pipeline {
                 git branch: "${params.GIT_BRANCH}",
                     url: "${env.REPO_URL}"
             }
+            // Checkout code from SCM (Git)
+            checkout scm
         }
 
         stage('Initialize') {
