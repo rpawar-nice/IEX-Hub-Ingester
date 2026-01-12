@@ -75,25 +75,6 @@ pipeline {
                 '''
             }
         }
-
-        stage('Deploy') {
-            when {
-                branch 'dev'
-            }
-            steps {
-                echo "Deploying application from main branch..."
-                sh '''
-                    scp ${PACKAGE_NAME} ${SERVER_USER}@${SERVER_HOST}:/tmp/
-                    ssh ${SERVER_USER}@${SERVER_HOST} "
-                        mkdir -p ${DEPLOY_PATH} &&
-                        cd ${DEPLOY_PATH} &&
-                        tar -xzf /tmp/${PACKAGE_NAME} &&
-                        pkill -f ${APP_NAME} || true &&
-                        nohup java -jar ${DEPLOY_PATH}/${BUILD_DIR}/*.jar > app.log 2>&1 &
-                    "
-                '''
-            }
-        }
     }
     
     post {
