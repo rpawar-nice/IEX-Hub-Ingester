@@ -20,14 +20,21 @@ pipeline {
 
   
     stages {
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
-                echo "Checking out branch: ${params.GIT_BRANCH}"
-                git branch: "${params.GIT_BRANCH}",
-                    url: "${env.REPO_URL}"
+                script {
+                    echo "=========================================="
+                    echo "Checking out code from Git"
+                    echo "=========================================="
+                    echo "Repository: ${GIT_REPO_URL}"
+                    echo "Branch: ${env.BRANCH_NAME}"
+                    echo "Build Number: ${env.BUILD_NUMBER}"
+                    echo "=========================================="
+                }
+                
+                // Checkout code from SCM (Git)
                 checkout scm
             }
-            
         }
 
         stage('Initialize') {
