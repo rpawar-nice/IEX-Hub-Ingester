@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.nice.iex.engagementhub</groupId>
-    <artifactId>ingestor-rta-gateway</artifactId>
+    <artifactId>IEX-Hub-Ingester</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>IEX-EngagementHub-Ingestor-RTAGateway</name>
     <description>Real-time ingestion gateway responsible for receiving, validating, and forwarding events to downstream
